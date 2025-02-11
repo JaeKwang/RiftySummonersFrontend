@@ -1,1 +1,41 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@keyframes hologramAnimation {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+  
+@layer utilities {
+    .animate-hologram {
+      background-size: 200% 200%;
+      animation: hologramAnimation 1s infinite alternate ease-in-out;
+    }
+    .text-bordered {
+        text-shadow: 
+            1px 1px 0 rgba(255, 255, 255, 1), 
+            -1px -1px 0 rgba(255, 255, 255, 1), 
+            1px -1px 0 rgba(255, 255, 255, 1), 
+            -1px 1px 0 rgba(255, 255, 255, 1); /* 테두리 효과 */
+    }
+}
+
+@layer components {
+    .container {@apply p-6 mx-auto;}
+    .page-title {@apply text-2xl text-white font-bold mb-4;}
+    .label-style {@apply block mb-2 text-white;}
+    .input-style {@apply w-full text-white border px-4 py-2 rounded;}
+    .button-style {@apply w-full text-white px-6 py-2 bg-blue-500 rounded;}
+    .btn-style {@apply bg-yellow-100 border-2 border-yellow-500 px-3 py-1 font-semibold rounded-full hover:bg-yellow-300 text-black;}
+
+    .scard {@apply bg-gradient-to-tl from-gray-400 to-white;}
+    .gcard {@apply bg-gradient-to-tl from-green-300 to-white;}
+    .bcard {@apply bg-gradient-to-tl from-blue-300 to-white;}
+    .pcard {@apply bg-gradient-to-tl from-purple-300 to-white;}
+    .ycard {@apply bg-gradient-to-tl from-yellow-300 to-white;}
+
+    .tscard {@apply bg-gradient-to-tl from-gray-700 to-gray-400;}
+    .tgcard {@apply bg-gradient-to-tl from-green-500 to-green-200;}
+    .tbcard {@apply bg-gradient-to-tl from-blue-500 to-blue-200;}
+    .tpcard {@apply bg-gradient-to-tl from-purple-500 to-purple-200;}
+    .tycard {@apply bg-gradient-to-tl from-yellow-500 to-yellow-200;}
+}
