@@ -76,6 +76,13 @@ function CardItem({card, dynamic}) {
                         }
                         
                     </div>
+                    {/* 별 */}
+                    <div className="mr-2 flex flex-row justify-end">
+                        <img 
+                            className="w-4"
+                            src={"./assets/star.png"}
+                        />
+                    </div>
                     {/* 이미지 */}
                     <div className={`m-2 pt-8 rounded shadow-md shadow-gray-400 relative z-10
                         ${card.origin_rate === 1 
