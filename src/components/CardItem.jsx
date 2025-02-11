@@ -1,13 +1,21 @@
 import { IoIosHeart } from "react-icons/io";
-import { FaShieldAlt, FaLeaf } from "react-icons/fa";
+import { FaShieldAlt, FaLeaf, FaQuestionCircle  } from "react-icons/fa";
 import { PiSwordFill } from "react-icons/pi";
 import { ImFire } from "react-icons/im";
 import { GiWaterSplash, GiHolyGrail, GiArcingBolt } from "react-icons/gi";
 import { MdBlock } from "react-icons/md";
 import { AiOutlineLock } from "react-icons/ai";
 import { FaHandFist } from "react-icons/fa6";
+import { FcBinoculars } from "react-icons/fc";
+import {
+    GiAlligatorClip,
+    GiAbstract020,
+    GiAfterburn,
+    GiAgave,
+    GiAlarmClock,    
+} from "react-icons/gi";
 
-function CardItem({card}) {
+function CardItem({card, dynamic}) {
     return (
         <div
             className="max-w-xs shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-110 relative bg-black"
@@ -54,10 +62,19 @@ function CardItem({card}) {
                                     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
                                 }}
                             >
-                                <p className="text-black font-semibold text-bordered">{card.id}</p>
+                                <p className="text-black font-semibold text-bordered">
+                                    {dynamic ? dynamic.lv : 1}
+                                </p>
                             </div>
                             <h2 className="text-black font-bold text-bordered">{card.name}</h2>
                         </div>
+                        {dynamic
+                        ? <div>
+                            <FcBinoculars className="w-6 h-6"/>
+                        </div> 
+                        : <FaQuestionCircle className="w-6 h-6 text-gray-500"/>
+                        }
+                        
                     </div>
                     {/* 이미지 */}
                     <div className={`m-2 pt-8 rounded shadow-md shadow-gray-400 relative z-10
@@ -155,19 +172,47 @@ function CardItem({card}) {
                                         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
                                     }}
                                 >
-                                    <FaHandFist className="w-6 h-6 text-gray-800" />
+                                    <FaHandFist className="w-5 h-5 text-gray-800" />
                                 </div>
-                                {Array(card.origin_rate).fill().map((v, i) => (
-                                    <div key={i} 
-                                        className="right-1 bottom-1 w-7 h-7 rounded-full flex items-center justify-center"
-                                        style={{
-                                            background: 'linear-gradient(135deg, rgba(255, 20, 50, 1) 0%, rgba(120, 185, 120, 1) 50%, rgba(123, 73, 164, 1) 100%)',
-                                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
-                                        }}
-                                    >
-                                        <AiOutlineLock className="w-6 h-6 text-white" />
-                                    </div>
-                                ))}
+                                {Array(card.origin_rate).fill().map((v, i) => {
+                                    const skill = dynamic?.skill[i]; 
+                                    if(skill) {
+                                        return (
+                                            <div key={i} 
+                                                className="right-1 bottom-1 w-7 h-7 rounded-full flex items-center justify-center"
+                                                style={{
+                                                    background: 'linear-gradient(135deg, rgba(255, 20, 50, 1) 0%, rgba(120, 185, 120, 1) 50%, rgba(123, 73, 164, 1) 100%)',
+                                                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
+                                                }}
+                                            >
+                                                {skill === 1
+                                                ? <GiAbstract020 className="w-5 h-5 text-purple-800" /> 
+                                                : skill === 2
+                                                ? <GiAfterburn className="w-5 h-5 text-orange-500" /> 
+                                                : skill === 3
+                                                ? <GiAgave className="w-5 h-5 text-red-600" /> 
+                                                : skill === 4
+                                                ? <GiAlarmClock className="w-5 h-5 text-blue-600" /> 
+                                                : skill === 5
+                                                ? <GiAlligatorClip className="w-5 h-5 text-purple-700" /> 
+                                                : <FaHandFist className="w-5 h-5 text-white" /> 
+                                                }
+                                            </div>
+                                        );
+                                    } else {
+                                        return (
+                                            <div key={i} 
+                                                className="right-1 bottom-1 w-7 h-7 rounded-full flex items-center justify-center"
+                                                style={{
+                                                    background: 'linear-gradient(135deg, rgba(255, 20, 50, 1) 0%, rgba(120, 185, 120, 1) 50%, rgba(123, 73, 164, 1) 100%)',
+                                                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
+                                                }}
+                                            >
+                                                <AiOutlineLock className="w-6 h-6 text-white" />
+                                            </div>
+                                        );
+                                    }
+                                })}
                                 {Array(5-card.origin_rate).fill().map((v, i) => (
                                     <div key={i} 
                                         className="right-1 bottom-1 w-7 h-7 rounded-full flex items-center justify-center"

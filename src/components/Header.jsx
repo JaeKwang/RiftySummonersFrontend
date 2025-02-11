@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import {ethers} from "ethers"
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "../store/slices/userSlice";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 function Header() {
     const dispatch = useDispatch();
@@ -33,8 +34,14 @@ function Header() {
         <header
             className="flex items-center justify-between bg-gray-800 text-white shadow-md h-20 p-6"
         >
-            <div>
-                Logo
+            <div className="flex flex-row items-center">
+                <RxHamburgerMenu className="h-8 w-12" />
+                <Link to="/">
+                    <img
+                        src="./assets/logo.png"
+                        className="h-20 object-cover"
+                    />
+                </Link>
             </div>
             <nav className="flex gap-4 items-center">
                 <Link to="/" className="hover:underline">
