@@ -1,18 +1,56 @@
 [
   {
-    "id": 1, "seller": "0x12345678", "price": 15.11, "card_id": 14, "lv": 22, "rate": "4", "skill": [1, 2]
+    "id": 1,
+    "seller": "0x12345678",
+    "price": 15.11,
+    "card_id": 14,
+    "lv": 22,
+    "rate": "4",
+    "skill": [2, 4, 1]
   },
   {
-    "id": 2, "seller": "0x12345678", "price": 13.26, "card_id": 21, "lv": 15, "rate": "3", "skill": [1, 2, 3]
+    "id": 2,
+    "seller": "0x12345678",
+    "price": 13.26,
+    "card_id": 21,
+    "lv": 15,
+    "rate": "5",
+    "skill": [1, 2, 3]
   },
   {
-    "id": 3, "seller": "0x12345678", "price": 23.40, "card_id": 68, "lv": 3, "rate": "5", "skill": [1, 2, 3, 4]
+    "id": 3,
+    "seller": "0x12345678",
+    "price": 23.4,
+    "card_id": 68,
+    "lv": 3,
+    "rate": "5",
+    "skill": [5, 2, 4, 1]
   },
   {
-    "id": 4, "seller": "0x12345678", "price": 124.34, "card_id": 9, "lv": 12, "rate": "2", "skill": [4]
+    "id": 4,
+    "seller": "0x12345678",
+    "price": 124.34,
+    "card_id": 9,
+    "lv": 20,
+    "rate": "2",
+    "skill": [4]
   },
   {
-    "id": 5, "seller": "0x12345678", "price": 37.12, "card_id": 78, "lv": 60, "rate": "6", "skill": [1, 2, 3, 4, 5]
+    "id": 5,
+    "seller": "0x12345678",
+    "price": 37.12,
+    "card_id": 78,
+    "lv": 60,
+    "rate": "6",
+    "skill": [1, 2, 3, 4, 5]
+  },
+  {
+    "id": 6,
+    "seller": "0x87654321",
+    "price": 40.12,
+    "card_id": 76,
+    "lv": 60,
+    "rate": "6",
+    "skill": [3, 4, 5, 2, 1]
   }
 ]
-  
